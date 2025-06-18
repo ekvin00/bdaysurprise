@@ -1,0 +1,219 @@
+:root {
+  --bg: #f9f9f9;
+  --text: #111;
+  --accent: #ff4c4c;
+  --btn-bg: #111;
+  --btn-text: #fff;
+  --paper: url('https://www.transparenttextures.com/patterns/asfalt-light.png');
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: var(--bg) var(--paper);
+  color: var(--text);
+  transition: all 0.3s ease;
+  min-height: 100vh;
+}
+
+body.dark-mode {
+  --bg: #1a1a1a;
+  --text: #eee;
+  --btn-bg: #eee;
+  --btn-text: #111;
+  --accent: #ff6666;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: white;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+body.dark-mode .navbar {
+  background: #222;
+}
+
+.nav-left {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.nav-item {
+  cursor: pointer;
+  position: relative;
+  font-weight: 600;
+}
+
+.nav-item.active {
+  background: black;
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 1rem;
+}
+
+.nav-divider {
+  color: #aaa;
+}
+
+.dark-toggle {
+  border: none;
+  background: transparent;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.main-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 3rem 2rem;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.text-section {
+  flex: 1;
+  animation: slideIn 1s ease forwards;
+}
+
+.image-section {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 1.2s ease forwards;
+}
+
+.title {
+  font-size: 3rem;
+  font-weight: 900;
+}
+
+.subtitle {
+  margin: 1rem 0 0.5rem;
+  font-weight: 600;
+}
+
+.description {
+  max-width: 500px;
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.link {
+  color: var(--accent);
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.signature {
+  font-family: 'Brush Script MT', cursive;
+  font-size: 2rem;
+  margin-top: 1rem;
+  color: #888;
+}
+
+.button-group {
+  margin-top: 1.5rem;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.btn {
+  padding: 0.6rem 1.4rem;
+  border: none;
+  background: var(--btn-bg);
+  color: var(--btn-text);
+  border-radius: 1.5rem;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  background: var(--accent);
+  color: white;
+}
+
+.makima-img {
+  width: 100%;
+  max-width: 400px;
+  object-fit: contain;
+}
+
+.footer-logo {
+  text-align: right;
+  padding: 2rem;
+  font-weight: bold;
+  color: #c44;
+  font-size: 1.2rem;
+  letter-spacing: 2px;
+  line-height: 1.2;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-40px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0px);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media (max-width: 768px) {
+  .main-content {
+    flex-direction: column-reverse;
+    padding: 2rem 1rem;
+  }
+
+  .footer-logo {
+    text-align: center;
+  }
+}
+
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+#characterSelect {
+  padding: 0.3rem 0.6rem;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  background: white;
+}
+
+body.dark-mode #characterSelect {
+  background: #444;
+  color: white;
+  border-color: #666;
+}
+
+#audioToggle {
+  border: none;
+  font-size: 1.5rem;
+  background: transparent;
+  cursor: pointer;
+}

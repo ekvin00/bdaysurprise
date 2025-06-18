@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HAPPY BIRTHDAY TAIF!</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="dark-mode">
+  
+  <header>
+    <nav class="navbar">
+      <div class="nav-left">
+        <div class="nav-item active">HOME</div>
+        <div class="nav-item"><a href="discordchat.html">SCORECARD</a></div>
+        <div class="nav-item">REPORT CARD</div>
+        <div class="nav-item"></div>
+        <div class="nav-divider">|</div>
+        <div class="nav-item"></div>
+      </div>
+      <div class="nav-right">
+        <select id="characterSelect">
+          <option value="Taif">Taif</option>
+        </select>
+        
+        <button id="audioToggle">🔈</button>
+        <button id="darkToggle">☀️ </button>
+      </div>
+    </nav>
+  </header>
+
+  <main class="main-content">
+    <section class="text-section" id="textSection">
+      <h1 class="title" id="charName">Taif,</h1>
+      <h3 class="subtitle" id="charTagline">
+        Happy Birthday!
+      </h3>
+      <p class="description" id="charDescription">
+        I know you didn't want a birthday gift... so instead, enjoy your annual year in review!
+      </p>
+  
+      <div class="signature" id="charSignature">Choose...</div>
+      <div class="button-group">
+        <button class="btn">I don't Accept this Gift</button>
+        <button class="btn">Accept</button>
+      </div>
+    </section>
+
+    <section class="image-section">
+      <img src="images/makima.png" alt="Character" class="makima-img" id="charImage" />
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-logo">FROM<br />BIG BOSS</div>
+  </footer>
+
+  <!-- Background Music -->
+  <audio id="bgMusic" src="music/bg-music.mp3" loop autoplay></audio>
+
+  <script src="script.js"></script>
+</body>
+</html>
