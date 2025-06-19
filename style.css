@@ -50,6 +50,85 @@ body.dark-mode .navbar {
   font-weight: 600;
 }
 
+.nav-item {
+  position: relative;
+  font-weight: 600;
+  color: var(--text);
+  padding: 0.5rem 0.75rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.nav-item:hover {
+  background-color: rgba(255, 76, 76, 0.1); /* soft red glow on hover */
+  color: var(--accent); /* uses your red accent */
+  transform: translateY(-2px);
+}
+
+.nav-item.active {
+  background-color: var(--accent);
+  color: white;
+  box-shadow: 0 4px 12px rgba(255, 76, 76, 0.3);
+  border-radius: 12px;
+}
+
+body.dark-mode .nav-item:hover {
+  background-color: rgba(255, 76, 76, 0.2);
+}
+
+body.dark-mode .nav-item.active {
+  background-color: var(--accent);
+  color: #fff;
+}
+
+.nav-left a {
+  position: relative;
+  font-weight: 600;
+  color: var(--text);
+  padding: 0.5rem 0.75rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+}
+
+.nav-left a:hover {
+  background-color: rgba(255, 76, 76, 0.1);
+  color: var(--accent);
+  transform: translateY(-2px);
+  text-decoration: none;
+}
+
+.nav-left a.active {
+  background-color: var(--accent);
+  color: white;
+  box-shadow: 0 4px 12px rgba(255, 76, 76, 0.3);
+  border-radius: 12px;
+  text-decoration: none;
+}
+
+.nav-item::after {
+  content: '';
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  bottom: 5px;
+  left: 50%;
+  background-color: var(--accent);
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.nav-item:hover::after {
+  width: 80%;
+}
+
+
 .nav-item.active {
   background: black;
   color: white;
@@ -88,6 +167,8 @@ body.dark-mode .navbar {
   justify-content: center;
   align-items: center;
   animation: fadeIn 1.2s ease forwards;
+  flex-direction: column;
+  gap: 1rem; /* spacing between images */
 }
 
 .title {
@@ -216,4 +297,247 @@ body.dark-mode #characterSelect {
   font-size: 1.5rem;
   background: transparent;
   cursor: pointer;
+}
+
+
+
+/* MODAL STYLES */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.8);
+}
+
+.modal-content {
+  background-color: #222;
+  margin: 10% auto;
+  padding: 2rem;
+  border-radius: 12px;
+  width: 80%;
+  max-width: 700px;
+  color: white;
+  position: relative;
+  box-shadow: 0 0 30px rgba(255,0,0,0.3);
+}
+
+.close {
+  color: crimson;
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover {
+  color: white;
+}
+
+
+
+
+// LIST-STYLES
+.fun-list {
+  list-style: decimal inside;
+  padding-left: 1rem;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  background: rgba(255, 76, 76, 0.05);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin: 1rem 0;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.fun-list li {
+  margin-bottom: 0.75rem;
+  padding-left: 0.5rem;
+  position: relative;
+  font-weight: 500;
+}
+
+.fun-list li::marker {
+  font-weight: bold;
+  color: var(--accent); /* uses your red accent */
+  font-size: 1.2rem;
+}
+
+.fun-list li:nth-child(1)::before { content: "📈 "; }
+.fun-list li:nth-child(2)::before { content: "🗣️ "; }
+.fun-list li:nth-child(3)::before { content: "🏆 "; }
+.fun-list li:nth-child(4)::before { content: "👯 "; }
+.fun-list li:nth-child(5)::before { content: "💩 "; }
+.fun-list li:nth-child(6)::before { content: "🏢 "; }
+.fun-list li:nth-child(7)::before { content: "🔥 "; }
+.fun-list li:nth-child(8)::before { content: "🍔 "; }
+.fun-list li:nth-child(9)::before { content: "🧋 "; }
+.fun-list li:nth-child(10)::before { content: "📺 "; }
+.fun-list li:nth-child(11)::before { content: "💯 "; }
+
+.fun-list {
+  list-style: none;
+}
+
+#charTagline {
+  font-size: 1.5rem;
+  font-weight: 900;
+  text-align: center;
+  margin-top: 2rem;
+  margin-bottom: 1.5rem;
+  color: #fffbe6;
+  letter-spacing: 1.5px;
+  font-family: 'Courier New', Courier, monospace;
+  background-color: #2d3b2f; /* dark green chalkboard */
+  padding: 1rem 2rem;
+  border: 3px dashed #fffbe6;
+  border-radius: 12px;
+  box-shadow: inset 0 0 0 2px #1f2b21;
+}
+
+
+.modal-iframe iframe {
+  width: 100%;
+  height: 500px;
+  border-radius: 8px;
+}
+
+
+
+/* Festive Birthday Modal */
+.modal-content {
+  background: linear-gradient(135deg, #ffe3ec, #fff6e7);
+  color: #333;
+  border-radius: 20px;
+  padding: 2rem;
+  position: relative;
+  box-shadow: 0 0 30px rgba(255, 180, 200, 0.5);
+  font-family: 'Segoe UI', sans-serif;
+  text-align: center;
+  max-width: 600px;
+  margin: 5% auto;
+  animation: popIn 0.4s ease;
+}
+
+@keyframes popIn {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.modal-content h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #d14a7d;
+}
+
+.modal-content p {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  white-space: pre-wrap;
+}
+
+.close {
+  position: absolute;
+  top: 12px;
+  right: 20px;
+  font-size: 26px;
+  font-weight: bold;
+  color: #d14a7d;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.close:hover {
+  transform: rotate(90deg);
+  color: #a72c60;
+}
+
+/* Festive decoration (optional confetti) */
+.modal-content::before {
+  content: "🎈🎉🎂";
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 2rem;
+}
+
+.modal-content::after {
+  content: "🎁💝✨";
+  position: absolute;
+  bottom: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 2rem;
+}
+
+
+
+/* ========== CONFETTI ========== */
+.confetti-container {
+  position: absolute;
+  pointer-events: none;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  z-index: 1;
+}
+
+.confetti {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: red;
+  opacity: 0.8;
+  border-radius: 2px;
+  animation: fall 2.5s linear forwards;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(300px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* ========== SPARKLES ========== */
+.sparkles-container {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.sparkle {
+  position: absolute;
+  font-size: 1.5rem;
+  color: #fffacd;
+  text-shadow: 0 0 5px gold;
+  animation: rise 3s ease-out forwards;
+  opacity: 0.9;
+}
+@keyframes rise {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-150px) scale(0.5);
+    opacity: 0;
+  }
 }
