@@ -15,14 +15,20 @@
         <div class="nav-item active"><a href="reportcard.html">REPORT CARD</a></div>
         <div class="nav-item"><a href="discordchat.html">SCORECARD</a></div>
         <!-- Trigger Button -->
-<button class="btn" onclick="openModal()">CARD</button>
+
+        <!-- Trigger Button -->
+<button class="btn" onclick="openModal('customModal')">🎂CARD</button>
+
 
 <!-- Modal Overlay -->
 <div id="customModal" class="modal">
   <div class="modal-content">
-    <span class="close" onclick="closeModal()">&times;</span>
+    <span class="close" onclick="closeModal('customModal')">&times;</span>
     <div class="sparkles-container"></div>
     <div id="modalBody">
+
+      
+      <!-- Your 'about page' content goes here -->
       <h2>Taif, aka BAKRTA5</h2>
       <p>
        Happy Birthday!! <br>
@@ -32,6 +38,47 @@
         
       </p>
     </div>
+    <!-- Confetti and Sparkles -->
+<div class="confetti-container"></div>
+<div class="sparkles-container"></div>
+
+  </div>
+</div>
+
+<!-- Trigger Button 2 -->
+<button class="btn" onclick="openModal('modal2')">💃🕺July 18</button>
+
+<!-- Modal 2 -->
+<div id="modal2" class="modal">
+  <div class="modal-content letter-theme folded">
+    <span class="close" onclick="closeModal('modal2')">&times;</span>
+    <canvas id="confettiCanvas" style="position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:1000;"></canvas>
+
+    <div id="modalBody">
+      <h2>To Taif/BAKRTA5/Work Bestie/Bestie,</h2>
+      <p>
+        It’s really happening. You're finally leaving <b><i>me</i></b> for AML! CONGRATSSSSS 🎉<br>
+
+        From all the unfiltered convos we have, to all the finessing we do at work. I truely can not imagine how I could have survived without our boss/bestie relationship. It's hard to believe it's only been 2.5 years and the impact you've had on my life through all HIGHS and LOWS, you were there! I'll always think back and appreciate those times you were there for me as a friend! All the Tiktoks, reels, chats and YAPS, real birthdays, fake birthday, trolls, ubereats, costco, car rides, breaks, and just your company, I can't imagine how boring life would've been. I hope it continues and doesn't stop just cause you'r leaving meeeeeeeeeee. I will miss the anchor days (sooo much), the random Teams calls, the random telepathic jokes we make when we hear someone talk, the inside jokes we have through Discord, I'll miss it all (I'm sure I forgot a lot of things too!).<br>
+
+       I can't wait to see you crush it in AML. I am sure you will do well and I'm sure everyone will love you there just as much as we love and appreciate you here. Don't undersell yourself, and you don't need reassurance, you got this! I'm exicted for your next four months of work, and even more exciting 2 years ahead. You deserve all the good things coming your way and I can't wait to see you succeed! YOU ARE GOALS!! INSHALLAH! <br>
+    
+        I appreciate everything you've done for me, and if I could, I would go back in time and go through it all again. And just know that no one can ever replace you!! 🥹 Thank you TAIF for being unique and the best work bestie anyone could ask for! 💯  
+
+       
+       
+        <em>Your Big Boss, Ex-Manager and Work Bestie, Kevin</em> 🫡🫰<br>
+        <img src="images/seeyouagain.gif" />
+      </p>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
         <!-- Confetti and Sparkles -->
 <div class="confetti-container"></div>
 
@@ -101,6 +148,57 @@
   <!-- Background Music -->
   <audio id="bgMusic" src="music/bg-music.mp3" loop autoplay></audio>
 
+<!-- Confetti JS -->
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+<script>
+  function openModal(id) {
+    const modal = document.getElementById(id);
+    modal.style.display = "block";
+
+    const content = modal.querySelector('.modal-content');
+
+    // If it's the "letter-theme" modal, apply the unfolding animation
+    if (content.classList.contains('letter-theme')) {
+      content.classList.remove("folded"); // Reset
+      void content.offsetWidth;           // Reflow
+      content.classList.add("folded");    // Restart
+    }
+
+    // Trigger confetti only for modal2
+    if (id === "modal2") {
+      launchConfetti();
+    }
+  }
+
+  function closeModal(id) {
+    document.getElementById(id).style.display = "none";
+  }
+
+  function launchConfetti() {
+    const duration = 3 * 1000;
+    const end = Date.now() + duration;
+
+    (function frame() {
+      confetti({
+        particleCount: 5,
+        angle: 60,
+        spread: 55,
+        origin: { x: 0 },
+      });
+      confetti({
+        particleCount: 5,
+        angle: 120,
+        spread: 55,
+        origin: { x: 1 },
+      });
+
+      if (Date.now() < end) {
+        requestAnimationFrame(frame);
+      }
+    })();
+  }
+</script>
 
 </body>
 </html>
